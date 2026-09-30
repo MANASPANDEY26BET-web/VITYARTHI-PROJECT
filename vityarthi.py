@@ -11,9 +11,9 @@ def attendance(total, attended):
    
     return (attended / total * 100) if total else 0
 def add_student():
-    roll = input("Roll Number: ")
+    roll = input("Roll Number:")
     if roll in students:
-        print("Student already exists!")
+        print("Student already exists")
         return
 
     students[roll] = {
@@ -30,7 +30,7 @@ def add_marks():
     roll = input("Roll Number: ")
 
     if roll not in students:
-        print("Student not found!")
+        print("Student not found")
         return
 
     n = int(input("Number of subjects: "))
@@ -51,13 +51,13 @@ def add_marks():
                 print("Enter a valid number.")
 
     students[roll]["subjects"] = subjects
-    print("Marks added!")
+    print("Marks added")
 
 def add_attendance():
     roll = input("Roll Number: ")
 
     if roll not in students:
-        print("Student not found!")
+        print("Student not found")
         return
 
     try:
@@ -66,7 +66,7 @@ def add_attendance():
 
        
         if total < 0 or attended < 0 or attended > total:
-            print("Invalid attendance!")
+            print("Invalid attendance")
             return
 
         students[roll]["total"] = total
@@ -81,7 +81,7 @@ def student_report():
     roll = input("Roll Number: ")
 
     if roll not in students:
-        print("Student not found!")
+        print("Student not foun")
         return
 
     s = students[roll]
@@ -132,7 +132,6 @@ def display_students():
         return
 
     print("\nALL STUDENTS")
-    print("============")
     for roll, s in students.items():
         print(roll, "-", s["name"], "-", s["branch"])
 
