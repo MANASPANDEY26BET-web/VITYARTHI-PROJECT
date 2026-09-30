@@ -1,6 +1,4 @@
 students = {}
-
-# Grade calculation
 def grade(p):
     if p >= 90: return "A+"
     if p >= 80: return "A"
@@ -9,15 +7,11 @@ def grade(p):
     if p >= 50: return "C"
     if p >= 40: return "D"
     return "F"
-# Attendance calculation
 def attendance(total, attended):
-    # avoid division by zero
+   
     return (attended / total * 100) if total else 0
-# Add a new student
 def add_student():
     roll = input("Roll Number: ")
-
-    # quick check for duplicates
     if roll in students:
         print("Student already exists!")
         return
@@ -30,9 +24,8 @@ def add_student():
         "total": 0,
         "attended": 0
     }
-
     print("Student added!")
-# Add marks for subjects
+
 def add_marks():
     roll = input("Roll Number: ")
 
@@ -43,7 +36,7 @@ def add_marks():
     n = int(input("Number of subjects: "))
     subjects = {}
 
-    # loop through subjects
+    #
     for i in range(n):
         subject = input(f"Subject {i + 1}: ")
 
@@ -60,7 +53,6 @@ def add_marks():
     students[roll]["subjects"] = subjects
     print("Marks added!")
 
-# Add attendance details
 def add_attendance():
     roll = input("Roll Number: ")
 
@@ -72,7 +64,7 @@ def add_attendance():
         total = int(input("Total classes: "))
         attended = int(input("Classes attended: "))
 
-        # validation
+       
         if total < 0 or attended < 0 or attended > total:
             print("Invalid attendance!")
             return
@@ -85,7 +77,6 @@ def add_attendance():
     except ValueError:
         print("Enter valid numbers.")
 
-# Generate student report
 def student_report():
     roll = input("Roll Number: ")
 
@@ -111,7 +102,6 @@ def student_report():
     percentage = total / len(subjects)
     att = attendance(s["total"], s["attended"])
 
-    # show marks
     for subject, marks in subjects.items():
         print(f"{subject}: {marks:.2f}")
 
@@ -123,7 +113,6 @@ def student_report():
     print("Best Subject:", max(subjects, key=subjects.get))
     print("Weakest Subject:", min(subjects, key=subjects.get))
 
-    # performance summary
     if percentage >= 75:
         performance = "Excellent"
     elif percentage >= 60:
@@ -137,7 +126,6 @@ def student_report():
 
     print("Performance:", performance)
 
-# Display all students
 def display_students():
     if not students:
         print("No students registered.")
@@ -148,7 +136,6 @@ def display_students():
     for roll, s in students.items():
         print(roll, "-", s["name"], "-", s["branch"])
 
-# Performance analysis for class
 def performance_analysis():
     data = []
 
@@ -171,7 +158,7 @@ def performance_analysis():
     print("Lowest:", lowest[1], "-", f"{lowest[2]:.2f}%")
     print("Class Average:", f"{average:.2f}%")
 
-# Main menu loop
+
 def main():
     while True:
         print("""
