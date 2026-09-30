@@ -87,7 +87,6 @@ def student_report():
     s = students[roll]
 
     print("\nSTUDENT REPORT")
-    print("==============")
     print("Name:", s["name"])
     print("Roll No.:", roll)
     print("Branch:", s["branch"])
@@ -152,7 +151,6 @@ def performance_analysis():
     average = sum(x[2] for x in data) / len(data)
 
     print("\nPERFORMANCE ANALYSIS")
-    print("====================")
     print("Highest:", highest[1], "-", f"{highest[2]:.2f}%")
     print("Lowest:", lowest[1], "-", f"{lowest[2]:.2f}%")
     print("Class Average:", f"{average:.2f}%")
